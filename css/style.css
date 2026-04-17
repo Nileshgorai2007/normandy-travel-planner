@@ -1365,25 +1365,33 @@ h4 { font-size: 1.4rem; }
   box-shadow: var(--shadow-lg);
   border-color: rgba(201,168,76,0.2);
 }
-.team-card-ribbon {
-  position: absolute;
-  top: 14px;
-  right: -30px;
-  background: var(--navy);
-  color: var(--gold);
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 0.25rem 2.5rem;
-  transform: rotate(45deg);
-  letter-spacing: 0.05em;
+.team-card-badge {
+  display: inline-block;
+  width: auto;
+  padding: 0.3rem 1.1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  letter-spacing: 0.07em;
+  margin-bottom: var(--space-md);
+  text-align: center;
 }
-.team-ribbon-support {
-  background: var(--brown);
-  color: var(--parchment);
+.badge-leader {
+  background: linear-gradient(135deg, var(--gold), var(--gold-muted));
+  color: var(--navy-deep);
 }
-.team-ribbon-dev {
+.badge-co-leader {
+  background: rgba(26,39,68,0.1);
+  color: var(--navy);
+  border: 1px solid rgba(26,39,68,0.2);
+}
+.badge-support {
+  background: rgba(107,84,56,0.12);
+  color: var(--brown);
+  border: 1px solid rgba(107,84,56,0.2);
+}
+.badge-dev {
   background: linear-gradient(135deg, var(--gold), var(--gold-muted));
   color: var(--navy-deep);
 }

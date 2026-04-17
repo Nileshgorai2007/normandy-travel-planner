@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-</head>
+  <style>
+    .lang-toggle-btn{display:flex;align-items:center;gap:.45rem;background:rgba(201,168,76,.12);border:1.5px solid rgba(201,168,76,.45);color:var(--gold);padding:.38rem .95rem;border-radius:999px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .25s ease;white-space:nowrap;margin-left:1rem;letter-spacing:.04em;font-family:var(--font-body,'Inter',sans-serif)}
+    .lang-toggle-btn:hover{background:var(--gold);color:#0f1a30;border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3)}
+    .lang-toggle-btn.switching{animation:langPulse .35s ease}
+    @keyframes langPulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+  </style></head>
 <body>
 
   <!-- Navbar -->
@@ -21,16 +26,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-          <li class="nav-item"><a class="nav-link active" href="history.html">D-Day History</a></li>
-          <li class="nav-item"><a class="nav-link" href="food.html">Food & Culture</a></li>
-          <li class="nav-item"><a class="nav-link" href="guide.html">Travel Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="planner.html">Trip Planner</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
-          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html"><span data-i18n="nav-home">Home</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html"><span data-i18n="nav-destinations">Destinations</span></a></li>
+          <li class="nav-item"><a class="nav-link active" href="history.html"><span data-i18n="nav-history">D-Day History</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html"><span data-i18n="nav-food">Food & Culture</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html"><span data-i18n="nav-guide">Travel Guide</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="planner.html"><span data-i18n="nav-planner">Trip Planner</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html"><span data-i18n="nav-gallery">Gallery</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html"><span data-i18n="nav-quiz">Quiz</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html"><span data-i18n="nav-packages">Packages</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html"><span data-i18n="nav-about">About</span></a></li>
         </ul>
       </div>
     </div>
@@ -38,8 +43,8 @@
 
   <!-- Page Banner -->
   <section class="page-banner">
-    <h1 data-aos="fade-up">D-Day: June 6, 1944</h1>
-    <p data-aos="fade-up" data-aos-delay="100">The Longest Day — When the course of history changed on Normandy's shores</p>
+    <h1 data-aos="fade-up" data-i18n="banner-title">D-Day: June 6, 1944</h1>
+    <p data-aos="fade-up" data-aos-delay="100" data-i18n="banner-sub">The Longest Day — When the course of history changed on Normandy's shores</p>
   </section>
 
   <!-- Intro -->
@@ -47,7 +52,7 @@
     <div class="container">
       <div class="row align-items-center g-5">
         <div class="col-lg-6" data-aos="fade-right">
-          <h2>Operation Overlord</h2>
+          <h2 data-i18n="op-title">Operation Overlord</h2>
           <p style="color: var(--brown-soft); font-size: 1.05rem; line-height: 1.8;">
             On June 6, 1944, Allied forces launched <strong>the largest seaborne invasion in history</strong> along the Normandy coastline. Code-named Operation Overlord, it marked the beginning of the liberation of Western Europe from Nazi Germany.
           </p>
@@ -97,8 +102,8 @@
   <section class="section-padding bg-parchment">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
-        <h2>Timeline of D-Day</h2>
-        <p>The key moments of the longest day in history</p>
+        <h2 data-i18n="tl-title">Timeline of D-Day</h2>
+        <p data-i18n="tl-sub">The key moments of the longest day in history</p>
       </div>
 
       <div class="timeline">
@@ -158,8 +163,8 @@
   <section class="section-padding bg-cream">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
-        <h2>The Five Landing Beaches</h2>
-        <p>Each beach tells its own story of courage and sacrifice</p>
+        <h2 data-i18n="five-title">The Five Landing Beaches</h2>
+        <p data-i18n="five-sub">Each beach tells its own story of courage and sacrifice</p>
       </div>
       <div class="row g-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -269,29 +274,37 @@
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <div class="footer-brand">Normandy<span style="color: var(--parchment); font-weight: 400;">Voyages</span></div>
-          <p>Your gateway to the timeless beauty of Normandy, France.</p>
+          <p data-i18n="footer-tagline-short">Your gateway to the timeless beauty of Normandy, France.</p>
         </div>
         <div class="col-lg-2 col-md-6">
-          <h5>Explore</h5>
+          <h5 data-i18n="footer-explore">Explore</h5>
           <ul class="list-unstyled">
-            <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="history.html">D-Day History</a></li>
+            <li><a href="destinations.html" data-i18n="fl-dest">Destinations</a></li>
+            <li><a href="history.html" data-i18n="fl-hist">D-Day History</a></li>
             <li><a href="food.html">Food & Culture</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="gallery.html" data-i18n="fl-gal">Gallery</a></li>
           </ul>
         </div>
+        <button class="lang-toggle-btn" id="langToggleBtn" onclick="toggleLanguage()" title="Switch language">
+          <span id="langFlag">🇫🇷</span>
+          <span id="langLabel">Français</span>
+        </button>
         <div class="col-lg-2 col-md-6">
-          <h5>Plan</h5>
+          <h5 data-i18n="footer-plan">Plan</h5>
           <ul class="list-unstyled">
-            <li><a href="guide.html">Travel Guide</a></li>
-            <li><a href="planner.html">Trip Planner</a></li>
-            <li><a href="package.html">Packages</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="guide.html" data-i18n="fl-guide">Travel Guide</a></li>
+            <li><a href="planner.html" data-i18n="fl-plan">Trip Planner</a></li>
+            <li><a href="package.html" data-i18n="fl-pkg">Packages</a></li>
+            <li><a href="quiz.html" data-i18n="fl-quiz">Quiz</a></li>
           </ul>
         </div>
+        <button class="lang-toggle-btn" id="langToggleBtn" onclick="toggleLanguage()" title="Switch language">
+          <span id="langFlag">🇫🇷</span>
+          <span id="langLabel">Français</span>
+        </button>
         <div class="col-lg-4 col-md-6">
-          <h5>Stay Connected</h5>
-          <p>Follow us for travel tips and Normandy inspiration.</p>
+          <h5 data-i18n="footer-connect">Stay Connected</h5>
+          <p data-i18n="footer-connect-sub">Follow us for travel tips and Normandy inspiration.</p>
           <div class="d-flex gap-3 mt-2">
             <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
             <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
@@ -302,7 +315,7 @@
       </div>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <p>&copy; 2026 NormandyVoyages. All rights reserved.</p>
+        <p data-i18n="footer-copy">&copy; 2026 NormandyVoyages. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -313,5 +326,8 @@
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="js/app.js"></script>
   <script src="js/chatbot.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
+
+

@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Discover Normandy, France — explore D-Day history, stunning cliffs, medieval towns, exquisite cuisine, and plan your dream trip from India.">
   <title>Normandy — Discover the Heart of France</title>
-
-  <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    .lang-toggle-btn{display:flex;align-items:center;gap:.45rem;background:rgba(201,168,76,.12);border:1.5px solid rgba(201,168,76,.45);color:var(--gold);padding:.38rem .95rem;border-radius:999px;font-size:.82rem;font-weight:600;cursor:pointer;transition:all .25s ease;white-space:nowrap;margin-left:1rem;letter-spacing:.04em;font-family:var(--font-body,'Inter',sans-serif)}
+    .lang-toggle-btn:hover{background:var(--gold);color:#0f1a30;border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3)}
+    .lang-toggle-btn.switching{animation:langPulse .35s ease}
+    @keyframes langPulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
+  </style>
 </head>
 <body>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-normandy fixed-top">
     <div class="container">
@@ -26,17 +26,21 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
-          <li class="nav-item"><a class="nav-link" href="history.html">D-Day History</a></li>
-          <li class="nav-item"><a class="nav-link" href="food.html">Food & Culture</a></li>
-          <li class="nav-item"><a class="nav-link" href="guide.html">Travel Guide</a></li>
-          <li class="nav-item"><a class="nav-link" href="planner.html">Trip Planner</a></li>
-          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
-          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link active" href="index.html" data-i18n="nav-home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html" data-i18n="nav-destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html" data-i18n="nav-history">D-Day History</a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html" data-i18n="nav-food">Food & Culture</a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html" data-i18n="nav-guide">Travel Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="planner.html" data-i18n="nav-planner">Trip Planner</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html" data-i18n="nav-gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html" data-i18n="nav-quiz">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html" data-i18n="nav-packages">Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html" data-i18n="nav-about">About</a></li>
         </ul>
+        <button class="lang-toggle-btn" id="langToggleBtn" onclick="toggleLanguage()" title="Switch language">
+          <span id="langFlag">🇫🇷</span>
+          <span id="langLabel">Français</span>
+        </button>
       </div>
     </div>
   </nav>
@@ -45,98 +49,90 @@
   <section class="hero" id="hero">
     <div class="hero-overlay"></div>
     <div class="hero-content" data-aos="fade-up">
-      <p style="color: var(--gold); font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">
+      <p data-i18n="hero-tagline" style="color: var(--gold); font-family: var(--font-heading); font-size: 1.1rem; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem;">
         ✦ Bienvenue en Normandie ✦
       </p>
-      <h1>Discover the <span class="gold-text">Timeless Beauty</span> of Normandy</h1>
-      <p>From the dramatic cliffs of Étretat to the hallowed shores of D-Day, Normandy weaves together history, art, culture, and unforgettable cuisine into one extraordinary journey.</p>
+      <h1 data-i18n="hero-title">Discover the <span class="gold-text">Timeless Beauty</span> of Normandy</h1>
+      <p data-i18n="hero-sub">From the dramatic cliffs of Étretat to the hallowed shores of D-Day, Normandy weaves together history, art, culture, and unforgettable cuisine into one extraordinary journey.</p>
       <div class="d-flex gap-3 justify-content-center flex-wrap">
-        <a href="quiz.html" class="btn btn-gold"><i class="bi bi-compass me-1"></i> Find Your Perfect Trip</a>
-        <a href="destinations.html" class="btn btn-outline-gold"><i class="bi bi-geo-alt me-1"></i> Explore Destinations</a>
+        <a href="quiz.html" class="btn btn-gold" data-i18n="hero-btn1"><i class="bi bi-compass me-1"></i> Find Your Perfect Trip</a>
+        <a href="destinations.html" class="btn btn-outline-gold" data-i18n="hero-btn2"><i class="bi bi-geo-alt me-1"></i> Explore Destinations</a>
       </div>
     </div>
-    <div class="hero-scroll-indicator">
-      <i class="bi bi-chevron-double-down"></i>
-    </div>
+    <div class="hero-scroll-indicator"><i class="bi bi-chevron-double-down"></i></div>
   </section>
 
   <!-- Why Normandy -->
   <section class="section-padding bg-cream" id="whyNormandy">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
-        <h2>Why Normandy?</h2>
-        <p>A land where every stone tells a story and every view takes your breath away</p>
+        <h2 data-i18n="why-title">Why Normandy?</h2>
+        <p data-i18n="why-sub">A land where every stone tells a story and every view takes your breath away</p>
       </div>
       <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-building"></i></div>
-            <h5>Epic History</h5>
-            <p>Walk the D-Day beaches, marvel at medieval castles, and trace the steps of William the Conqueror.</p>
+            <h5 data-i18n="why-h1">Epic History</h5>
+            <p data-i18n="why-p1">Walk the D-Day beaches, marvel at medieval castles, and trace the steps of William the Conqueror.</p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-palette"></i></div>
-            <h5>Art & Inspiration</h5>
-            <p>From Monet's Giverny to the Impressionist coast, Normandy is a living canvas of beauty.</p>
+            <h5 data-i18n="why-h2">Art & Inspiration</h5>
+            <p data-i18n="why-p2">From Monet's Giverny to the Impressionist coast, Normandy is a living canvas of beauty.</p>
           </div>
         </div>
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-cup-hot"></i></div>
-            <h5>Exquisite Cuisine</h5>
-            <p>Indulge in Camembert, fresh oysters, apple cider, Calvados, and the creamiest butter in France.</p>
+            <h5 data-i18n="why-h3">Exquisite Cuisine</h5>
+            <p data-i18n="why-p3">Indulge in Camembert, fresh oysters, apple cider, Calvados, and the creamiest butter in France.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Highlights Carousel Cards -->
+  <!-- Must-See Highlights -->
   <section class="section-padding bg-parchment">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
-        <h2>Must-See Highlights</h2>
-        <p>Iconic destinations that define the Normandy experience</p>
+        <h2 data-i18n="highlights-title">Must-See Highlights</h2>
+        <p data-i18n="highlights-sub">Iconic destinations that define the Normandy experience</p>
       </div>
       <div class="row g-4">
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card-normandy h-100">
-            <div style="height: 220px; background: linear-gradient(135deg, #1a2744 0%, #2a3d5e 100%); display:flex; align-items:center; justify-content:center;">
-              <span style="font-size: 5rem;">🏰</span>
-            </div>
+            <div style="height:220px;background:linear-gradient(135deg,#1a2744 0%,#2a3d5e 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:5rem;">🏰</span></div>
             <div class="card-body">
-              <span class="card-badge">UNESCO Heritage</span>
-              <h5 class="card-title">Mont Saint-Michel</h5>
-              <p class="card-text">A tidal island abbey rising from the sea, attracting over 3 million visitors each year. Truly magical at sunset.</p>
-              <a href="destinations.html" class="btn btn-sm btn-gold mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+              <span class="card-badge" data-i18n="card1-badge">UNESCO Heritage</span>
+              <h5 class="card-title" data-i18n="card1-title">Mont Saint-Michel</h5>
+              <p class="card-text" data-i18n="card1-text">A tidal island abbey rising from the sea, attracting over 3 million visitors each year. Truly magical at sunset.</p>
+              <a href="destinations.html" class="btn btn-sm btn-gold mt-2" data-i18n="card1-btn">Explore <i class="bi bi-arrow-right ms-1"></i></a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="card-normandy h-100">
-            <div style="height: 220px; background: linear-gradient(135deg, #2d5a3d 0%, #4a7a5d 100%); display:flex; align-items:center; justify-content:center;">
-              <span style="font-size: 5rem;">🌊</span>
-            </div>
+            <div style="height:220px;background:linear-gradient(135deg,#2d5a3d 0%,#4a7a5d 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:5rem;">🌊</span></div>
             <div class="card-body">
-              <span class="card-badge">Natural Wonder</span>
-              <h5 class="card-title">Cliffs of Étretat</h5>
-              <p class="card-text">Dramatic white chalk formations rising from the sea, inspiring painters and writers for centuries.</p>
-              <a href="destinations.html" class="btn btn-sm btn-gold mt-2">Explore <i class="bi bi-arrow-right ms-1"></i></a>
+              <span class="card-badge" data-i18n="card2-badge">Natural Wonder</span>
+              <h5 class="card-title" data-i18n="card2-title">Cliffs of Étretat</h5>
+              <p class="card-text" data-i18n="card2-text">Dramatic white chalk formations rising from the sea, inspiring painters and writers for centuries.</p>
+              <a href="destinations.html" class="btn btn-sm btn-gold mt-2" data-i18n="card2-btn">Explore <i class="bi bi-arrow-right ms-1"></i></a>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="card-normandy h-100">
-            <div style="height: 220px; background: linear-gradient(135deg, #6b5438 0%, #8a7056 100%); display:flex; align-items:center; justify-content:center;">
-              <span style="font-size: 5rem;">⚔️</span>
-            </div>
+            <div style="height:220px;background:linear-gradient(135deg,#6b5438 0%,#8a7056 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:5rem;">⚔️</span></div>
             <div class="card-body">
-              <span class="card-badge">WWII Memorial</span>
-              <h5 class="card-title">D-Day Beaches</h5>
-              <p class="card-text">Walk the shores where 156,000 Allied troops landed on June 6, 1944, changing the course of history.</p>
-              <a href="history.html" class="btn btn-sm btn-gold mt-2">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
+              <span class="card-badge" data-i18n="card3-badge">WWII Memorial</span>
+              <h5 class="card-title" data-i18n="card3-title">D-Day Beaches</h5>
+              <p class="card-text" data-i18n="card3-text">Walk the shores where 156,000 Allied troops landed on June 6, 1944, changing the course of history.</p>
+              <a href="history.html" class="btn btn-sm btn-gold mt-2" data-i18n="card3-btn">Learn More <i class="bi bi-arrow-right ms-1"></i></a>
             </div>
           </div>
         </div>
@@ -151,70 +147,70 @@
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
           <div class="stat-counter">
             <div class="stat-number" data-target="3000000" data-suffix="+">0</div>
-            <div class="stat-label">Annual Visitors</div>
+            <div class="stat-label" data-i18n="stats-l1">Annual Visitors</div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
           <div class="stat-counter">
             <div class="stat-number" data-target="600" data-suffix=" km">0</div>
-            <div class="stat-label">Coastline Length</div>
+            <div class="stat-label" data-i18n="stats-l2">Coastline Length</div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
           <div class="stat-counter">
             <div class="stat-number" data-target="1066" data-suffix="">0</div>
-            <div class="stat-label">Year — Norman Conquest</div>
+            <div class="stat-label" data-i18n="stats-l3">Year — Norman Conquest</div>
           </div>
         </div>
         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
           <div class="stat-counter">
             <div class="stat-number" data-target="5" data-suffix="">0</div>
-            <div class="stat-label">D-Day Landing Beaches</div>
+            <div class="stat-label" data-i18n="stats-l4">D-Day Landing Beaches</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- User Flow CTA -->
+  <!-- Plan Your Journey -->
   <section class="section-padding bg-cream">
     <div class="container">
       <div class="section-heading" data-aos="fade-up">
-        <h2>Plan Your Journey</h2>
-        <p>Follow our simple steps to craft your perfect Normandy adventure</p>
+        <h2 data-i18n="plan-title">Plan Your Journey</h2>
+        <p data-i18n="plan-sub">Follow our simple steps to craft your perfect Normandy adventure</p>
       </div>
       <div class="row g-4">
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-question-circle"></i></div>
-            <h5>1. Take the Quiz</h5>
-            <p>Discover your travel personality</p>
+            <h5 data-i18n="plan-h1">1. Take the Quiz</h5>
+            <p data-i18n="plan-p1">Discover your travel personality</p>
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-map"></i></div>
-            <h5>2. Plan Your Route</h5>
-            <p>Get your personalized travel path</p>
+            <h5 data-i18n="plan-h2">2. Plan Your Route</h5>
+            <p data-i18n="plan-p2">Get your personalized travel path</p>
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-box-seam"></i></div>
-            <h5>3. Build Package</h5>
-            <p>Customize your day-wise itinerary</p>
+            <h5 data-i18n="plan-h3">3. Build Package</h5>
+            <p data-i18n="plan-p3">Customize your day-wise itinerary</p>
           </div>
         </div>
         <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
           <div class="feature-icon-box">
             <div class="icon-circle"><i class="bi bi-bookmark-heart"></i></div>
-            <h5>4. Save & Go!</h5>
-            <p>Save your plan and start packing</p>
+            <h5 data-i18n="plan-h4">4. Save & Go!</h5>
+            <p data-i18n="plan-p4">Save your plan and start packing</p>
           </div>
         </div>
       </div>
       <div class="text-center mt-5" data-aos="fade-up" data-aos-delay="500">
-        <a href="quiz.html" class="btn btn-gold btn-lg"><i class="bi bi-rocket-takeoff me-2"></i>Start Your Adventure</a>
+        <a href="quiz.html" class="btn btn-gold btn-lg" data-i18n="plan-btn"><i class="bi bi-rocket-takeoff me-2"></i>Start Your Adventure</a>
       </div>
     </div>
   </section>
@@ -224,52 +220,51 @@
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
-          <div class="footer-brand">Normandy<span style="color: var(--parchment); font-weight: 400;">Voyages</span></div>
-          <p>Your gateway to the timeless beauty of Normandy, France. Explore history, art, cuisine, and nature.</p>
+          <div class="footer-brand">Normandy<span style="color:var(--parchment);font-weight:400;">Voyages</span></div>
+          <p data-i18n="footer-tagline">Your gateway to the timeless beauty of Normandy, France. Explore history, art, cuisine, and nature.</p>
         </div>
         <div class="col-lg-2 col-md-6">
-          <h5>Explore</h5>
+          <h5 data-i18n="footer-explore">Explore</h5>
           <ul class="list-unstyled">
-            <li><a href="destinations.html">Destinations</a></li>
-            <li><a href="history.html">D-Day History</a></li>
-            <li><a href="food.html">Food & Culture</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="destinations.html" data-i18n="fl-dest">Destinations</a></li>
+            <li><a href="history.html" data-i18n="fl-hist">D-Day History</a></li>
+            <li><a href="food.html" data-i18n="fl-food">Food & Culture</a></li>
+            <li><a href="gallery.html" data-i18n="fl-gal">Gallery</a></li>
           </ul>
         </div>
         <div class="col-lg-2 col-md-6">
-          <h5>Plan</h5>
+          <h5 data-i18n="footer-plan">Plan</h5>
           <ul class="list-unstyled">
-            <li><a href="guide.html">Travel Guide</a></li>
-            <li><a href="planner.html">Trip Planner</a></li>
-            <li><a href="package.html">Packages</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="guide.html" data-i18n="fl-guide">Travel Guide</a></li>
+            <li><a href="planner.html" data-i18n="fl-plan">Trip Planner</a></li>
+            <li><a href="package.html" data-i18n="fl-pkg">Packages</a></li>
+            <li><a href="quiz.html" data-i18n="fl-quiz">Quiz</a></li>
           </ul>
         </div>
         <div class="col-lg-4 col-md-6">
-          <h5>Stay Connected</h5>
-          <p>Follow us for travel tips and Normandy inspiration.</p>
+          <h5 data-i18n="footer-connect">Stay Connected</h5>
+          <p data-i18n="footer-connect-sub">Follow us for travel tips and Normandy inspiration.</p>
           <div class="d-flex gap-3 mt-2">
-            <a href="#" aria-label="Facebook" style="font-size: 1.3rem;"><i class="bi bi-facebook"></i></a>
-            <a href="#" aria-label="Instagram" style="font-size: 1.3rem;"><i class="bi bi-instagram"></i></a>
-            <a href="#" aria-label="Twitter" style="font-size: 1.3rem;"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" aria-label="YouTube" style="font-size: 1.3rem;"><i class="bi bi-youtube"></i></a>
+            <a href="#" aria-label="Facebook" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="Twitter" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="YouTube" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
       </div>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <p>&copy; 2026 NormandyVoyages. All rights reserved. Made with <i class="bi bi-heart-fill" style="color: var(--gold);"></i> for travelers.</p>
+        <p data-i18n="footer-copy">&copy; 2026 NormandyVoyages. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:var(--gold);"></i> for travelers.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Surprise Button -->
   <button class="surprise-btn" id="surpriseBtn" aria-label="Fun fact"><i class="bi bi-lightbulb"></i></button>
 
-  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="js/app.js"></script>
   <script src="js/chatbot.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
