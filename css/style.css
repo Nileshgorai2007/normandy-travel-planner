@@ -164,6 +164,7 @@ h4 { font-size: 1.4rem; }
   color: var(--gold) !important;
   font-weight: 700;
   letter-spacing: 0.02em;
+  margin-left: -1rem;
 }
 .navbar-normandy .navbar-brand span {
   color: var(--parchment);
