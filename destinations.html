@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Normandy's top destinations — from Mont Saint-Michel to Étretat, Rouen, D-Day beaches, and more. Interactive map included.">
+  <title>Destinations — NormandyVoyages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-normandy fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Normandy<span>Voyages</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">D-Day History</a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html">Food & Culture</a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html">Travel Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="planner.html">Trip Planner</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1 data-aos="fade-up">Explore Normandy</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Discover enchanting towns, dramatic coastlines, and centuries of history</p>
+  </section>
+
+  <!-- Interactive Map -->
+  <section class="section-padding bg-cream">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <h2>Interactive Map</h2>
+        <p>Click on any marker to learn about the destination</p>
+      </div>
+      <div data-aos="fade-up" data-aos-delay="100">
+        <div id="map"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destination Cards -->
+  <section class="section-padding bg-parchment">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <h2>Top Destinations</h2>
+        <p>Hand-picked places that capture the soul of Normandy</p>
+      </div>
+      <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #1a2744, #3a5a8e); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">🏰</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">UNESCO Heritage</span>
+              <h5 class="card-title">Mont Saint-Michel</h5>
+              <p class="card-text">A stunning tidal island topped by an ancient abbey, rising majestically from the sea. The tides here can move as fast as a galloping horse.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Mont%20Saint-Michel" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #2d5a3d, #4a8a6d); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">🌊</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">Natural Wonder</span>
+              <h5 class="card-title">Étretat</h5>
+              <p class="card-text">Towering white chalk cliffs with natural arches, dramatically carved by centuries of wind and waves along the Alabaster Coast.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Étretat" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #5a3d2d, #8a6d4d); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">⛪</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">Medieval Capital</span>
+              <h5 class="card-title">Rouen</h5>
+              <p class="card-text">The medieval capital of Normandy, famed for its Gothic cathedral (painted 30 times by Monet) and Joan of Arc history.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Rouen" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #6b5438, #9e7a56); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">⚔️</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">WWII History</span>
+              <h5 class="card-title">D-Day Beaches</h5>
+              <p class="card-text">Walk the five landing beaches — Omaha, Utah, Gold, Juno, Sword — where 156,000 Allied soldiers changed world history on June 6, 1944.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="history.html" class="btn btn-sm btn-gold">Learn More</a>
+                <a href="package.html?dest=D-Day%20Beaches" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #3d7ea6, #5da3c6); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">🎨</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">Impressionist Art</span>
+              <h5 class="card-title">Giverny</h5>
+              <p class="card-text">Claude Monet's home and enchanting water gardens that inspired his iconic Water Lilies series. A pilgrimage for art lovers.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Giverny" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #4a2d5a, #7a5d8a); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">⚓</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">Artist's Haven</span>
+              <h5 class="card-title">Honfleur</h5>
+              <p class="card-text">A picturesque harbor town with half-timbered houses reflected in the old port. A favorite of Impressionist painters.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Honfleur" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #8a3a3a, #b85a5a); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">🏛️</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">Historic Town</span>
+              <h5 class="card-title">Bayeux</h5>
+              <p class="card-text">Home of the legendary 70-meter Bayeux Tapestry depicting the 1066 Norman conquest. A medieval gem perfectly preserved.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Bayeux" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-normandy h-100">
+            <div style="height: 220px; background: linear-gradient(135deg, #2a3d5e, #4a6d9e); display:flex; align-items:center; justify-content:center;">
+              <span style="font-size: 5rem;">🏰</span>
+            </div>
+            <div class="card-body">
+              <span class="card-badge">William's City</span>
+              <h5 class="card-title">Caen</h5>
+              <p class="card-text">Founded by William the Conqueror, featuring twin abbeys, a grand castle, and the powerful Caen Memorial Museum for peace.</p>
+              <div class="d-flex gap-2 mt-3">
+                <a href="planner.html" class="btn btn-sm btn-gold">Plan Trip</a>
+                <a href="package.html?dest=Caen" class="btn btn-sm btn-outline-gold">Build Package</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-navy text-center">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-parchment mb-3">Ready to Explore Normandy?</h2>
+      <p class="text-parchment mb-4" style="opacity: 0.7; max-width: 500px; margin: 0 auto;">Take our travel quiz to discover your ideal Normandy destination, then plan your route.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="quiz.html" class="btn btn-gold"><i class="bi bi-compass me-1"></i> Take the Quiz</a>
+        <a href="planner.html" class="btn btn-outline-gold"><i class="bi bi-map me-1"></i> Plan Your Trip</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">Normandy<span style="color: var(--parchment); font-weight: 400;">Voyages</span></div>
+          <p>Your gateway to the timeless beauty of Normandy, France.</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Explore</h5>
+          <ul class="list-unstyled">
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">D-Day History</a></li>
+            <li><a href="food.html">Food & Culture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Plan</h5>
+          <ul class="list-unstyled">
+            <li><a href="guide.html">Travel Guide</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="package.html">Packages</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Stay Connected</h5>
+          <p>Follow us for travel tips and Normandy inspiration.</p>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NormandyVoyages. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="surprise-btn" id="surpriseBtn" aria-label="Fun fact"><i class="bi bi-lightbulb"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

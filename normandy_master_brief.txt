@@ -1,0 +1,117 @@
+NORMANDY TRAVEL WEBSITE – FULL MASTER BRIEF
+
+PROJECT OVERVIEW:
+A multi-page interactive travel website focused on Normandy, France.
+Goal: Engage users, provide travel information, and simulate a real travel planning platform.
+
+THEME:
+Historic + Nostalgic vibe
+Colors:
+- Deep navy / faded blue
+- Warm parchment beige
+- Muted gold accents
+- Soft brown tones
+Typography:
+- Serif (Playfair Display / Cinzel) for headings
+- Clean sans-serif for body
+Feel: Old Europe, vintage travel journal
+
+CORE PAGES:
+1. Home
+2. Destinations
+3. D-Day History
+4. Food & Culture
+5. Travel Guide
+6. Trip Planner
+7. Gallery
+8. Quiz Page
+9. Package Builder
+
+KEY FEATURES:
+
+1. TRIP PLANNER:
+Input:
+- Indian city
+- Normandy destination
+Output:
+- Flight route
+- Train/bus route
+- Total time
+- Estimated cost
+- Best season
+
+Logic:
+Preloaded JSON (no API)
+
+2. QUIZ SYSTEM:
+User answers 5–7 questions
+Maps answers → travel personality
+Outputs best destination
+Button → Plan Trip
+
+3. PACKAGE BUILDER:
+User selects:
+- Destination
+- Duration (3/5/7 days)
+- Budget (low/medium/high)
+
+Output:
+- Day-wise itinerary
+- Cost estimate
+- Travel suggestions
+
+Uses localStorage to save plans
+
+4. CHATBOT:
+Predefined knowledge base
+Answers:
+- Destinations
+- Cost
+- Travel tips
+- Food
+Typing animation + suggestion buttons
+
+5. MICRO-INTERACTIONS:
+- Hover animations
+- Scroll animations (AOS)
+- Button ripple effects
+- Smooth transitions
+- Loading animations
+
+6. MAP:
+Leaflet.js + OpenStreetMap
+Clickable Normandy locations
+
+7. EXTRA FEATURES:
+- Weather widget
+- Currency converter
+- Packing checklist (dynamic)
+- Surprise button
+- Gallery filters
+
+USER FLOW:
+Quiz → Result → Trip Planner → Package Builder → Save Plan
+
+TECH STACK:
+- HTML5
+- CSS3 (Bootstrap 5)
+- JavaScript
+- Leaflet.js
+- AOS.js
+- LocalStorage
+
+FOLDER STRUCTURE:
+- index.html
+- destinations.html
+- history.html
+- food.html
+- guide.html
+- planner.html
+- gallery.html
+- quiz.html
+- package.html
+
+GOAL:
+Create a realistic, interactive travel platform with strong UI/UX and engagement.
+
+END OF DOCUMENT

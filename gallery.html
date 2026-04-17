@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse stunning photos of Normandy — dramatic cliffs, medieval towns, D-Day memorials, and beautiful countryside. Filter by category.">
+  <title>Gallery — NormandyVoyages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-normandy fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Normandy<span>Voyages</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">D-Day History</a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html">Food & Culture</a></li>
+          <li class="nav-item"><a class="nav-link" href="guide.html">Travel Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="planner.html">Trip Planner</a></li>
+          <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1 data-aos="fade-up"><i class="bi bi-images me-2"></i>Gallery</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Visual stories from across Normandy</p>
+  </section>
+
+  <!-- Gallery -->
+  <section class="section-padding bg-cream">
+    <div class="container">
+      <!-- Filters -->
+      <div class="text-center mb-4" data-aos="fade-up">
+        <button class="gallery-filter-btn active" data-filter="all">All</button>
+        <button class="gallery-filter-btn" data-filter="landscape">Landscapes</button>
+        <button class="gallery-filter-btn" data-filter="heritage">Heritage</button>
+        <button class="gallery-filter-btn" data-filter="dday">D-Day</button>
+        <button class="gallery-filter-btn" data-filter="town">Towns</button>
+        <button class="gallery-filter-btn" data-filter="food">Food</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Items populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightboxClose"><i class="bi bi-x-lg"></i></button>
+    <img src="" alt="Gallery image" id="lightboxImg">
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">Normandy<span style="color: var(--parchment); font-weight: 400;">Voyages</span></div>
+          <p>Your gateway to the timeless beauty of Normandy, France.</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Explore</h5>
+          <ul class="list-unstyled">
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">D-Day History</a></li>
+            <li><a href="food.html">Food & Culture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Plan</h5>
+          <ul class="list-unstyled">
+            <li><a href="guide.html">Travel Guide</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="package.html">Packages</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Stay Connected</h5>
+          <p>Follow us for travel tips and Normandy inspiration.</p>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NormandyVoyages. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="surprise-btn" id="surpriseBtn" aria-label="Fun fact"><i class="bi bi-lightbulb"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <script>
+    // Gallery data — using gradient placeholders with emojis as a substitute for real images
+    const galleryItems = [
+      { title: "Cliffs of Étretat at Sunset", category: "landscape", gradient: "linear-gradient(135deg, #3d7ea6, #1a4a6e)", emoji: "🌅", desc: "Alabaster Coast" },
+      { title: "Mont Saint-Michel", category: "heritage", gradient: "linear-gradient(135deg, #1a2744, #3a5a8e)", emoji: "🏰", desc: "UNESCO Heritage" },
+      { title: "Omaha Beach Memorial", category: "dday", gradient: "linear-gradient(135deg, #6b5438, #3a2a18)", emoji: "⚔️", desc: "D-Day Memorial" },
+      { title: "Rouen Cathedral", category: "heritage", gradient: "linear-gradient(135deg, #4a2d5a, #7a5d8a)", emoji: "⛪", desc: "Gothic Masterpiece" },
+      { title: "Normandy Countryside", category: "landscape", gradient: "linear-gradient(135deg, #2d5a3d, #4a8a6d)", emoji: "🌿", desc: "Rolling Hills" },
+      { title: "Camembert & Calvados", category: "food", gradient: "linear-gradient(135deg, #c9a84c, #8a7056)", emoji: "🧀", desc: "Norman Cuisine" },
+      { title: "Honfleur Harbor", category: "town", gradient: "linear-gradient(135deg, #2a3d5e, #5a7d9e)", emoji: "⚓", desc: "Artist's Haven" },
+      { title: "American Cemetery", category: "dday", gradient: "linear-gradient(135deg, #1a2744, #2a3d5e)", emoji: "🇺🇸", desc: "9,387 Graves" },
+      { title: "Monet's Garden, Giverny", category: "landscape", gradient: "linear-gradient(135deg, #5a8a3d, #8aba6d)", emoji: "🎨", desc: "Impressionist Paradise" },
+      { title: "Bayeux Tapestry", category: "heritage", gradient: "linear-gradient(135deg, #8a3a3a, #b85a5a)", emoji: "🏛️", desc: "Medieval Art" },
+      { title: "Fresh Oysters", category: "food", gradient: "linear-gradient(135deg, #3d7ea6, #2a5a80)", emoji: "🦪", desc: "Coastal Delicacy" },
+      { title: "Pointe du Hoc", category: "dday", gradient: "linear-gradient(135deg, #5a5a3a, #8a8a5a)", emoji: "🎖️", desc: "Ranger Assault" },
+      { title: "Deauville Boardwalk", category: "town", gradient: "linear-gradient(135deg, #c9a84c, #9e7a2a)", emoji: "🏖️", desc: "Elegant Resort" },
+      { title: "Norman Apple Orchards", category: "landscape", gradient: "linear-gradient(135deg, #6d8a3d, #4a6a2d)", emoji: "🍎", desc: "Cider Country" },
+      { title: "Galettes & Crêpes", category: "food", gradient: "linear-gradient(135deg, #8a7056, #6b5438)", emoji: "🥞", desc: "Street Food" },
+      { title: "Caen Castle", category: "heritage", gradient: "linear-gradient(135deg, #5a4a3a, #8a7a6a)", emoji: "🏰", desc: "William's Fortress" },
+      { title: "Utah Beach Museum", category: "dday", gradient: "linear-gradient(135deg, #3a5a3a, #5a8a5a)", emoji: "🏛️", desc: "WWII History" },
+      { title: "Normandy Cheese Board", category: "food", gradient: "linear-gradient(135deg, #e8dcc8, #c9a84c)", emoji: "🧈", desc: "Dairy Capital" }
+    ];
+
+    const grid = document.getElementById('galleryGrid');
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function renderGallery(filter = 'all') {
+      const filtered = filter === 'all' ? galleryItems : galleryItems.filter(item => item.category === filter);
+      grid.innerHTML = filtered.map(item => `
+        <div class="gallery-item" data-aos="zoom-in" data-category="${item.category}" onclick="openLightbox(this)" style="background: ${item.gradient}; display:flex; align-items:center; justify-content:center;">
+          <span style="font-size: 4rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">${item.emoji}</span>
+          <div class="gallery-overlay">
+            <div>
+              <span>${item.title}</span><br>
+              <small style="color: var(--gold); font-size: 0.8rem;">${item.desc}</small>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // Re-init AOS for new elements
+      if (typeof AOS !== 'undefined') AOS.refresh();
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGallery(btn.dataset.filter);
+      });
+    });
+
+    window.openLightbox = function(el) {
+      // For gradient-based gallery items, create a canvas snapshot
+      const title = el.querySelector('.gallery-overlay span')?.textContent || 'Normandy';
+      const emoji = el.querySelector('span')?.textContent || '';
+      
+      // Create a simple SVG as the lightbox image
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
+        <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a2744"/><stop offset="100%" style="stop-color:#2a3d5e"/></linearGradient></defs>
+        <rect width="800" height="600" fill="url(#bg)"/>
+        <text x="400" y="250" font-size="120" text-anchor="middle">${emoji}</text>
+        <text x="400" y="370" font-family="serif" font-size="32" fill="#c9a84c" text-anchor="middle" font-weight="bold">${title}</text>
+      </svg>`;
+      
+      lightboxImg.src = 'data:image/svg+xml,' + encodeURIComponent(svg);
+      lightbox.classList.add('active');
+    };
+
+    lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+
+    renderGallery();
+  </script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your complete Normandy travel guide — weather, currency converter, packing checklist, and essential tips for an unforgettable trip from India.">
+  <title>Travel Guide — NormandyVoyages</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-normandy fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Normandy<span>Voyages</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">D-Day History</a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html">Food & Culture</a></li>
+          <li class="nav-item"><a class="nav-link active" href="guide.html">Travel Guide</a></li>
+          <li class="nav-item"><a class="nav-link" href="planner.html">Trip Planner</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz.html">Quiz</a></li>
+          <li class="nav-item"><a class="nav-link" href="package.html">Packages</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner">
+    <h1 data-aos="fade-up">Travel Guide</h1>
+    <p data-aos="fade-up" data-aos-delay="100">Everything you need to know before your Normandy adventure</p>
+  </section>
+
+  <!-- Weather Widget -->
+  <section class="section-padding bg-cream">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="section-heading text-start" data-aos="fade-up">
+            <h2>Normandy Weather</h2>
+            <p style="margin: 0;">Seasonal conditions to help you plan the perfect trip</p>
+          </div>
+          <div class="row g-3 mt-2">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+              <div class="weather-widget text-center">
+                <div class="weather-icon">🌸</div>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);">Spring</h5>
+                <div class="weather-temp" style="font-size: 1.8rem;">8–16°C</div>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Mar – May</p>
+                <small style="opacity: 0.6;">Blossoming countryside, mild rain</small>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+              <div class="weather-widget text-center">
+                <div class="weather-icon">☀️</div>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);">Summer</h5>
+                <div class="weather-temp" style="font-size: 1.8rem;">16–24°C</div>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Jun – Aug</p>
+                <small style="opacity: 0.6;">Perfect for beaches & hiking</small>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+              <div class="weather-widget text-center">
+                <div class="weather-icon">🍂</div>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);">Autumn</h5>
+                <div class="weather-temp" style="font-size: 1.8rem;">8–16°C</div>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Sep – Nov</p>
+                <small style="opacity: 0.6;">Stunning foliage, fewer crowds</small>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+              <div class="weather-widget text-center">
+                <div class="weather-icon">❄️</div>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);">Winter</h5>
+                <div class="weather-temp" style="font-size: 1.8rem;">2–8°C</div>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Dec – Feb</p>
+                <small style="opacity: 0.6;">Quiet, atmospheric, cozy</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Currency Converter -->
+        <div class="col-lg-4" data-aos="fade-left">
+          <div class="currency-converter h-100">
+            <h4 class="mb-3"><i class="bi bi-currency-exchange me-2 text-gold"></i>Currency Converter</h4>
+            <p style="color: var(--brown-soft); font-size: 0.9rem;">Quick INR to EUR conversion for trip budgeting</p>
+            <div class="mb-3">
+              <label class="form-label" style="color: var(--navy); font-weight: 600; font-size: 0.85rem;">Amount (₹ INR)</label>
+              <input type="number" class="form-control" id="inrAmount" value="50000" min="0" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream);">
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="flex-grow-1" style="height: 2px; background: var(--parchment-dark);"></div>
+              <i class="bi bi-arrow-down-up text-gold" style="font-size: 1.2rem;"></i>
+              <div class="flex-grow-1" style="height: 2px; background: var(--parchment-dark);"></div>
+            </div>
+            <div class="p-3 text-center" style="background: var(--parchment); border-radius: 12px; border: 1px solid rgba(201,168,76,0.2);">
+              <small style="color: var(--brown-soft);">Equivalent in Euros</small>
+              <div id="eurResult" style="font-size: 2rem; font-weight: 800; color: var(--navy); font-family: var(--font-heading);">€556</div>
+              <small style="color: var(--brown-light);">Rate: 1 EUR ≈ ₹89.9 (approx.)</small>
+            </div>
+            <button class="btn btn-gold w-100 mt-3" id="convertBtn">Convert</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Essential Tips -->
+  <section class="section-padding bg-parchment">
+    <div class="container">
+      <div class="section-heading" data-aos="fade-up">
+        <h2>Essential Travel Tips</h2>
+        <p>Pro tips for Indian travelers visiting Normandy</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-passport"></i></div>
+            <h5>Visa & Documents</h5>
+            <p>Indian passport holders need a Schengen visa. Apply at the French Embassy or VFS Global at least 3 weeks before travel. Keep hotel bookings & return tickets ready.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-translate"></i></div>
+            <h5>Language Tips</h5>
+            <p>French is the primary language. Learn basic phrases: "Bonjour" (Hello), "Merci" (Thank you), "S'il vous plaît" (Please). English is spoken in tourist areas.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-plug"></i></div>
+            <h5>Electricity & SIM</h5>
+            <p>France uses Type C/E plugs (220V). Carry a universal adapter. Get a prepaid SIM at Paris CDG airport or use an international roaming plan.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-train-front"></i></div>
+            <h5>Getting Around</h5>
+            <p>SNCF trains run from Paris to major Normandy cities. Book on SNCF Connect for best prices. Consider renting a car for countryside flexibility.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-credit-card"></i></div>
+            <h5>Money & Tipping</h5>
+            <p>The Euro (€) is the currency. Cards accepted widely, but carry cash for small towns. Tipping is not mandatory but 5-10% is appreciated.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="feature-icon-box h-100">
+            <div class="icon-circle"><i class="bi bi-shield-check"></i></div>
+            <h5>Safety</h5>
+            <p>Normandy is very safe. Standard precautions apply — watch valuables in crowded areas. Emergency number: 112 (EU-wide). Pharmacies are marked with green crosses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packing Checklist -->
+  <section class="section-padding bg-cream">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6" data-aos="fade-right">
+          <h2 class="mb-2">Packing Checklist</h2>
+          <p style="color: var(--brown-soft); margin-bottom: 1.5rem;">Dynamic checklist based on season. Check off items as you pack!</p>
+
+          <div class="mb-3">
+            <label class="form-label" style="font-weight: 600; color: var(--navy); font-size: 0.9rem;">Select Season</label>
+            <select class="form-select" id="seasonSelect" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream);">
+              <option value="summer">Summer (Jun – Aug)</option>
+              <option value="spring">Spring (Mar – May)</option>
+              <option value="autumn">Autumn (Sep – Nov)</option>
+              <option value="winter">Winter (Dec – Feb)</option>
+            </select>
+          </div>
+
+          <div id="packingList" style="background: var(--white); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow-sm); border: 1px solid rgba(26,39,68,0.06);"></div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-left">
+          <h2 class="mb-2">Quick Phrases</h2>
+          <p style="color: var(--brown-soft); margin-bottom: 1.5rem;">Essential French phrases for your trip</p>
+          <div style="background: var(--navy); border-radius: 16px; padding: 1.5rem; box-shadow: var(--shadow-md);">
+            <table class="table table-borderless mb-0">
+              <tbody>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600; width: 45%;">Bonjour</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Hello / Good morning</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Merci beaucoup</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Thank you very much</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">S'il vous plaît</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Please</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Excusez-moi</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Excuse me</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Combien ça coûte?</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">How much does it cost?</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Où est...?</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Where is...?</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">L'addition, s'il vous plaît</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">The bill, please</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Parlez-vous anglais?</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Do you speak English?</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">C'est délicieux!</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">It's delicious!</td>
+                </tr>
+                <tr>
+                  <td style="color: var(--gold); font-weight: 600;">Au revoir</td>
+                  <td style="color: var(--parchment); opacity: 0.8;">Goodbye</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-padding bg-navy text-center">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-parchment mb-3">Ready to Plan Your Trip?</h2>
+      <p class="text-parchment mb-4" style="opacity: 0.7;">Use our Trip Planner to get your personalized route from India to Normandy.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="planner.html" class="btn btn-gold"><i class="bi bi-map me-1"></i> Plan My Trip</a>
+        <a href="quiz.html" class="btn btn-outline-gold"><i class="bi bi-compass me-1"></i> Take the Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">Normandy<span style="color: var(--parchment); font-weight: 400;">Voyages</span></div>
+          <p>Your gateway to the timeless beauty of Normandy, France.</p>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Explore</h5>
+          <ul class="list-unstyled">
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="history.html">D-Day History</a></li>
+            <li><a href="food.html">Food & Culture</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6">
+          <h5>Plan</h5>
+          <ul class="list-unstyled">
+            <li><a href="guide.html">Travel Guide</a></li>
+            <li><a href="planner.html">Trip Planner</a></li>
+            <li><a href="package.html">Packages</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Stay Connected</h5>
+          <p>Follow us for travel tips and Normandy inspiration.</p>
+          <div class="d-flex gap-3 mt-2">
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 NormandyVoyages. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="surprise-btn" id="surpriseBtn" aria-label="Fun fact"><i class="bi bi-lightbulb"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/chatbot.js"></script>
+
+  <script>
+    // Currency Converter
+    document.getElementById('convertBtn').addEventListener('click', () => {
+      const inr = parseFloat(document.getElementById('inrAmount').value) || 0;
+      const rate = 89.9;
+      const eur = (inr / rate).toFixed(2);
+      document.getElementById('eurResult').textContent = '€' + Number(eur).toLocaleString();
+    });
+
+    // Packing Checklist
+    const packingItems = {
+      summer: [
+        "Lightweight clothing", "Sunscreen SPF 50+", "Sunglasses", "Comfortable walking shoes",
+        "Light rain jacket", "Swimwear", "Hat / cap", "Reusable water bottle",
+        "Universal power adapter", "Passport & visa copies", "Travel insurance docs",
+        "Camera with extra battery", "Day backpack", "Flip flops / sandals"
+      ],
+      spring: [
+        "Layers (jackets + light sweaters)", "Waterproof jacket", "Umbrella",
+        "Comfortable walking shoes", "Jeans / trousers", "Light scarf",
+        "Universal power adapter", "Passport & visa copies", "Travel insurance docs",
+        "Camera", "Day backpack", "Allergy medication (pollen season)"
+      ],
+      autumn: [
+        "Warm layers & sweaters", "Waterproof jacket", "Umbrella", "Sturdy walking shoes",
+        "Warm socks", "Light gloves", "Scarf", "Universal power adapter",
+        "Passport & visa copies", "Travel insurance docs", "Camera",
+        "Day backpack", "Moisturizer (drier air)"
+      ],
+      winter: [
+        "Heavy winter coat", "Thermal underwear", "Warm sweaters", "Waterproof boots",
+        "Thick socks", "Gloves & beanie", "Warm scarf", "Umbrella",
+        "Universal power adapter", "Passport & visa copies", "Travel insurance docs",
+        "Camera", "Hand warmers", "Lip balm & moisturizer"
+      ]
+    };
+
+    function renderChecklist(season) {
+      const list = document.getElementById('packingList');
+      const items = packingItems[season] || packingItems.summer;
+      const saved = JSON.parse(localStorage.getItem('packingChecked_' + season) || '[]');
+
+      list.innerHTML = items.map((item, i) => `
+        <div class="checklist-item">
+          <input type="checkbox" id="pack_${i}" ${saved.includes(i) ? 'checked' : ''} onchange="togglePack('${season}', ${i}, this.checked)">
+          <label for="pack_${i}">${item}</label>
+        </div>
+      `).join('');
+    }
+
+    window.togglePack = function(season, index, checked) {
+      const key = 'packingChecked_' + season;
+      let saved = JSON.parse(localStorage.getItem(key) || '[]');
+      if (checked && !saved.includes(index)) saved.push(index);
+      else saved = saved.filter(i => i !== index);
+      localStorage.setItem(key, JSON.stringify(saved));
+    };
+
+    document.getElementById('seasonSelect').addEventListener('change', (e) => {
+      renderChecklist(e.target.value);
+    });
+
+    renderChecklist('summer');
+  </script>
+</body>
+</html>
