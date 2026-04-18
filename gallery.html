@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,52 @@
     .lang-toggle-btn:hover{background:var(--gold);color:#0f1a30;border-color:var(--gold);transform:translateY(-1px);box-shadow:0 4px 14px rgba(201,168,76,.3)}
     .lang-toggle-btn.switching{animation:langPulse .35s ease}
     @keyframes langPulse{0%{transform:scale(1)}50%{transform:scale(1.12)}100%{transform:scale(1)}}
-  </style></head>
+
+    /* Lightbox */
+    .lightbox-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,16,32,0.96);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox-overlay.active { display: flex; }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 78vh;
+      border-radius: 12px;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.7);
+      object-fit: contain;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: rgba(201,168,76,0.15);
+      border: 1.5px solid rgba(201,168,76,0.4);
+      color: #c9a84c;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+    .lightbox-close:hover { background: var(--gold); color: #0f1a30; }
+    .lightbox-caption {
+      margin-top: 1rem;
+      text-align: center;
+    }
+    .lightbox-caption h5 { color: #c9a84c; font-family: 'Playfair Display', serif; margin: 0; font-size: 1.2rem; }
+    .lightbox-caption small { color: rgba(245,239,224,0.6); font-size: 0.85rem; }
+  </style>
+</head>
 <body>
 
   <!-- Navbar -->
@@ -29,7 +74,7 @@
           <li class="nav-item"><a class="nav-link" href="index.html"><span data-i18n="nav-home">Home</span></a></li>
           <li class="nav-item"><a class="nav-link" href="destinations.html"><span data-i18n="nav-destinations">Destinations</span></a></li>
           <li class="nav-item"><a class="nav-link" href="history.html"><span data-i18n="nav-history">D-Day History</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="food.html"><span data-i18n="nav-food">Food & Culture</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="food.html"><span data-i18n="nav-food">Food &amp; Culture</span></a></li>
           <li class="nav-item"><a class="nav-link" href="guide.html"><span data-i18n="nav-guide">Travel Guide</span></a></li>
           <li class="nav-item"><a class="nav-link" href="planner.html"><span data-i18n="nav-planner">Trip Planner</span></a></li>
           <li class="nav-item"><a class="nav-link active" href="gallery.html"><span data-i18n="nav-gallery">Gallery</span></a></li>
@@ -65,9 +110,7 @@
       </div>
 
       <!-- Gallery Grid -->
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Items populated by JS -->
-      </div>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </div>
   </section>
 
@@ -75,6 +118,10 @@
   <div class="lightbox-overlay" id="lightbox">
     <button class="lightbox-close" id="lightboxClose"><i class="bi bi-x-lg"></i></button>
     <img src="" alt="Gallery image" id="lightboxImg">
+    <div class="lightbox-caption">
+      <h5 id="lightboxTitle"></h5>
+      <small id="lightboxDesc"></small>
+    </div>
   </div>
 
   <!-- Footer -->
@@ -90,7 +137,7 @@
           <ul class="list-unstyled">
             <li><a href="destinations.html" data-i18n="fl-dest">Destinations</a></li>
             <li><a href="history.html" data-i18n="fl-hist">D-Day History</a></li>
-            <li><a href="food.html">Food & Culture</a></li>
+            <li><a href="food.html">Food &amp; Culture</a></li>
             <li><a href="gallery.html" data-i18n="fl-gal">Gallery</a></li>
           </ul>
         </div>
@@ -129,39 +176,40 @@
   <script src="js/chatbot.js"></script>
 
   <script>
-    // Gallery data — using gradient placeholders with emojis as a substitute for real images
+    // Gallery data — real unique images mapped to categories
     const galleryItems = [
-      { title: "Cliffs of Étretat at Sunset", category: "landscape", gradient: "linear-gradient(135deg, #3d7ea6, #1a4a6e)", emoji: "🌅", desc: "Alabaster Coast" },
-      { title: "Mont Saint-Michel", category: "heritage", gradient: "linear-gradient(135deg, #1a2744, #3a5a8e)", emoji: "🏰", desc: "UNESCO Heritage" },
-      { title: "Omaha Beach Memorial", category: "dday", gradient: "linear-gradient(135deg, #6b5438, #3a2a18)", emoji: "⚔️", desc: "D-Day Memorial" },
-      { title: "Rouen Cathedral", category: "heritage", gradient: "linear-gradient(135deg, #4a2d5a, #7a5d8a)", emoji: "⛪", desc: "Gothic Masterpiece" },
-      { title: "Normandy Countryside", category: "landscape", gradient: "linear-gradient(135deg, #2d5a3d, #4a8a6d)", emoji: "🌿", desc: "Rolling Hills" },
-      { title: "Camembert & Calvados", category: "food", gradient: "linear-gradient(135deg, #c9a84c, #8a7056)", emoji: "🧀", desc: "Norman Cuisine" },
-      { title: "Honfleur Harbor", category: "town", gradient: "linear-gradient(135deg, #2a3d5e, #5a7d9e)", emoji: "⚓", desc: "Artist's Haven" },
-      { title: "American Cemetery", category: "dday", gradient: "linear-gradient(135deg, #1a2744, #2a3d5e)", emoji: "🇺🇸", desc: "9,387 Graves" },
-      { title: "Monet's Garden, Giverny", category: "landscape", gradient: "linear-gradient(135deg, #5a8a3d, #8aba6d)", emoji: "🎨", desc: "Impressionist Paradise" },
-      { title: "Bayeux Tapestry", category: "heritage", gradient: "linear-gradient(135deg, #8a3a3a, #b85a5a)", emoji: "🏛️", desc: "Medieval Art" },
-      { title: "Fresh Oysters", category: "food", gradient: "linear-gradient(135deg, #3d7ea6, #2a5a80)", emoji: "🦪", desc: "Coastal Delicacy" },
-      { title: "Pointe du Hoc", category: "dday", gradient: "linear-gradient(135deg, #5a5a3a, #8a8a5a)", emoji: "🎖️", desc: "Ranger Assault" },
-      { title: "Deauville Boardwalk", category: "town", gradient: "linear-gradient(135deg, #c9a84c, #9e7a2a)", emoji: "🏖️", desc: "Elegant Resort" },
-      { title: "Norman Apple Orchards", category: "landscape", gradient: "linear-gradient(135deg, #6d8a3d, #4a6a2d)", emoji: "🍎", desc: "Cider Country" },
-      { title: "Galettes & Crêpes", category: "food", gradient: "linear-gradient(135deg, #8a7056, #6b5438)", emoji: "🥞", desc: "Street Food" },
-      { title: "Caen Castle", category: "heritage", gradient: "linear-gradient(135deg, #5a4a3a, #8a7a6a)", emoji: "🏰", desc: "William's Fortress" },
-      { title: "Utah Beach Museum", category: "dday", gradient: "linear-gradient(135deg, #3a5a3a, #5a8a5a)", emoji: "🏛️", desc: "WWII History" },
-      { title: "Normandy Cheese Board", category: "food", gradient: "linear-gradient(135deg, #e8dcc8, #c9a84c)", emoji: "🧈", desc: "Dairy Capital" }
+      { title: "Cliffs of Étretat",        category: "landscape", img: "img/etretat_cliffs.png",      desc: "Alabaster Coast, Normandy" },
+      { title: "Mont Saint-Michel",         category: "heritage",  img: "img/mont_saint_michel.png",   desc: "UNESCO World Heritage Site" },
+      { title: "D-Day Memorial Cemetery",   category: "dday",      img: "img/dday_beaches.png",        desc: "Omaha Beach — June 6, 1944" },
+      { title: "Rouen Cathedral",           category: "heritage",  img: "img/rouen_cathedral.png",     desc: "Gothic Masterpiece of Normandy" },
+      { title: "Normandy Countryside",      category: "landscape", img: "img/normandy_countryside.png",desc: "Rolling Green Hills & Orchards" },
+      { title: "Camembert de Normandie",    category: "food",      img: "img/camembert_cheese.png",    desc: "Iconic Norman Cheese" },
+      { title: "Honfleur Harbor",           category: "town",      img: "img/honfleur_harbor.png",     desc: "Artist's Haven on the Coast" },
+      { title: "Normandy Coast Panorama",   category: "landscape", img: "img/normandy_hero.png",       desc: "Dramatic Chalk Cliffs" },
+      { title: "Monet's Garden, Giverny",   category: "landscape", img: "img/giverny_monet.png",       desc: "Impressionist Paradise" },
+      { title: "Bayeux Medieval Town",      category: "heritage",  img: "img/bayeux_town.png",         desc: "Norman Architecture & History" },
+      { title: "Fresh Normandy Oysters",    category: "food",      img: "img/normandy_oysters.png",    desc: "Coastal Delicacy" },
+      { title: "Calvados & Norman Cider",   category: "food",      img: "img/calvados_cider.png",      desc: "Apple Orchards of Normandy" },
+      { title: "Caen Castle",               category: "heritage",  img: "img/caen_castle.png",         desc: "Built by William the Conqueror" },
+      { title: "Norman Food Spread",        category: "food",      img: "img/normandy_food.png",       desc: "Butter, Cheese & Seafood" }
     ];
 
-    const grid = document.getElementById('galleryGrid');
-    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-    const lightbox = document.getElementById('lightbox');
+    const grid        = document.getElementById('galleryGrid');
+    const filterBtns  = document.querySelectorAll('.gallery-filter-btn');
+    const lightbox    = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc  = document.getElementById('lightboxDesc');
     const lightboxClose = document.getElementById('lightboxClose');
 
     function renderGallery(filter = 'all') {
-      const filtered = filter === 'all' ? galleryItems : galleryItems.filter(item => item.category === filter);
-      grid.innerHTML = filtered.map(item => `
-        <div class="gallery-item" data-aos="zoom-in" data-category="${item.category}" onclick="openLightbox(this)" style="background: ${item.gradient}; display:flex; align-items:center; justify-content:center;">
-          <span style="font-size: 4rem; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));">${item.emoji}</span>
+      const filtered = filter === 'all' ? galleryItems : galleryItems.filter(i => i.category === filter);
+      grid.innerHTML = filtered.map((item, idx) => `
+        <div class="gallery-item" data-aos="zoom-in" data-aos-delay="${(idx % 6) * 60}"
+             data-category="${item.category}"
+             data-img="${item.img}" data-title="${item.title}" data-desc="${item.desc}"
+             onclick="openLightbox(this)">
+          <img src="${item.img}" alt="${item.title}" loading="lazy">
           <div class="gallery-overlay">
             <div>
               <span>${item.title}</span><br>
@@ -171,7 +219,6 @@
         </div>
       `).join('');
 
-      // Re-init AOS for new elements
       if (typeof AOS !== 'undefined') AOS.refresh();
     }
 
@@ -184,38 +231,24 @@
     });
 
     window.openLightbox = function(el) {
-      // For gradient-based gallery items, create a canvas snapshot
-      const title = el.querySelector('.gallery-overlay span')?.textContent || 'Normandy';
-      const emoji = el.querySelector('span')?.textContent || '';
-      
-      // Create a simple SVG as the lightbox image
-      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600">
-        <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1a2744"/><stop offset="100%" style="stop-color:#2a3d5e"/></linearGradient></defs>
-        <rect width="800" height="600" fill="url(#bg)"/>
-        <text x="400" y="250" font-size="120" text-anchor="middle">${emoji}</text>
-        <text x="400" y="370" font-family="serif" font-size="32" fill="#c9a84c" text-anchor="middle" font-weight="bold">${title}</text>
-      </svg>`;
-      
-      lightboxImg.src = 'data:image/svg+xml,' + encodeURIComponent(svg);
+      lightboxImg.src    = el.dataset.img;
+      lightboxTitle.textContent = el.dataset.title;
+      lightboxDesc.textContent  = el.dataset.desc;
       lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
     };
 
-    lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.remove('active');
-    });
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') lightbox.classList.remove('active');
-    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
     renderGallery();
   </script>
   <script src="js/i18n.js"></script>
 </body>
 </html>
-
-
-
-
-
