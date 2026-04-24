@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -64,37 +64,37 @@
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
               <div class="weather-widget text-center">
                 <div class="weather-icon">🌸</div>
-                <h5 class="mt-2 mb-1" style="color: var(--gold);">Spring</h5>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);" data-i18n="spring">Spring</h5>
                 <div class="weather-temp" style="font-size: 1.8rem;">8–16°C</div>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Mar – May</p>
-                <small style="opacity: 0.6;">Blossoming countryside, mild rain</small>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;" data-i18n="spring-months">Mar – May</p>
+                <small style="opacity: 0.6;" data-i18n="spring-desc">Blossoming countryside, mild rain</small>
               </div>
             </div>
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
               <div class="weather-widget text-center">
                 <div class="weather-icon">☀️</div>
-                <h5 class="mt-2 mb-1" style="color: var(--gold);">Summer</h5>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);" data-i18n="summer">Summer</h5>
                 <div class="weather-temp" style="font-size: 1.8rem;">16–24°C</div>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Jun – Aug</p>
-                <small style="opacity: 0.6;">Perfect for beaches & hiking</small>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;" data-i18n="summer-months">Jun – Aug</p>
+                <small style="opacity: 0.6;" data-i18n="summer-desc">Perfect for beaches & hiking</small>
               </div>
             </div>
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
               <div class="weather-widget text-center">
                 <div class="weather-icon">🍂</div>
-                <h5 class="mt-2 mb-1" style="color: var(--gold);">Autumn</h5>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);" data-i18n="autumn">Autumn</h5>
                 <div class="weather-temp" style="font-size: 1.8rem;">8–16°C</div>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Sep – Nov</p>
-                <small style="opacity: 0.6;">Stunning foliage, fewer crowds</small>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;" data-i18n="autumn-months">Sep – Nov</p>
+                <small style="opacity: 0.6;" data-i18n="autumn-desc">Stunning foliage, fewer crowds</small>
               </div>
             </div>
             <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
               <div class="weather-widget text-center">
                 <div class="weather-icon">❄️</div>
-                <h5 class="mt-2 mb-1" style="color: var(--gold);">Winter</h5>
+                <h5 class="mt-2 mb-1" style="color: var(--gold);" data-i18n="winter">Winter</h5>
                 <div class="weather-temp" style="font-size: 1.8rem;">2–8°C</div>
-                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;">Dec – Feb</p>
-                <small style="opacity: 0.6;">Quiet, atmospheric, cozy</small>
+                <p style="font-size: 0.85rem; opacity: 0.7; margin: 0.3rem 0 0;" data-i18n="winter-months">Dec – Feb</p>
+                <small style="opacity: 0.6;" data-i18n="winter-desc">Quiet, atmospheric, cozy</small>
               </div>
             </div>
           </div>
@@ -103,23 +103,23 @@
         <!-- Currency Converter -->
         <div class="col-lg-4" data-aos="fade-left">
           <div class="currency-converter h-100">
-            <h4 class="mb-3"><i class="bi bi-currency-exchange me-2 text-gold"></i>Currency Converter</h4>
-            <p style="color: var(--brown-soft); font-size: 0.9rem;">Quick INR to EUR conversion for trip budgeting</p>
+            <h4 class="mb-3" data-i18n="currency-title"><i class="bi bi-currency-exchange me-2 text-gold"></i>Currency Converter</h4>
+            <p id="converterDesc" style="color: var(--brown-soft); font-size: 0.9rem;" data-i18n="currency-sub">Quick INR to EUR conversion for trip budgeting</p>
             <div class="mb-3">
-              <label class="form-label" style="color: var(--navy); font-weight: 600; font-size: 0.85rem;">Amount (₹ INR)</label>
-              <input type="number" class="form-control" id="inrAmount" value="50000" min="0" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream);">
+              <label id="amountLabel" class="form-label" style="color: var(--navy); font-weight: 600; font-size: 0.85rem;" data-i18n="currency-label">Amount (₹ INR)</label>
+              <input type="number" class="form-control" id="converterAmount" value="50000" min="0" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream);">
             </div>
             <div class="d-flex align-items-center gap-3 mb-3">
               <div class="flex-grow-1" style="height: 2px; background: var(--parchment-dark);"></div>
-              <i class="bi bi-arrow-down-up text-gold" style="font-size: 1.2rem;"></i>
+              <button class="btn btn-link p-0" id="swapBtn" title="Swap currencies"><i class="bi bi-arrow-down-up text-gold" style="font-size: 1.2rem; cursor: pointer;"></i></button>
               <div class="flex-grow-1" style="height: 2px; background: var(--parchment-dark);"></div>
             </div>
             <div class="p-3 text-center" style="background: var(--parchment); border-radius: 12px; border: 1px solid rgba(201,168,76,0.2);">
-              <small style="color: var(--brown-soft);">Equivalent in Euros</small>
-              <div id="eurResult" style="font-size: 2rem; font-weight: 800; color: var(--navy); font-family: var(--font-heading);">€556</div>
-              <small style="color: var(--brown-light);">Rate: 1 EUR ≈ ₹89.9 (approx.)</small>
+              <small id="resultLabel" style="color: var(--brown-soft);" data-i18n="currency-equiv">Equivalent in Euros</small>
+              <div id="converterResult" style="font-size: 2rem; font-weight: 800; color: var(--navy); font-family: var(--font-heading);">€556.17</div>
+              <small style="color: var(--brown-light);" data-i18n="currency-rate">Rate: 1 EUR ≈ ₹89.9 (approx.)</small>
             </div>
-            <button class="btn btn-gold w-100 mt-3" id="convertBtn">Convert</button>
+            <button class="btn btn-gold w-100 mt-3" id="convertBtn" data-i18n="convert-btn">Convert</button>
           </div>
         </div>
       </div>
@@ -137,43 +137,43 @@
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-passport"></i></div>
-            <h5>Visa & Documents</h5>
-            <p>Indian passport holders need a Schengen visa. Apply at the French Embassy or VFS Global at least 3 weeks before travel. Keep hotel bookings & return tickets ready.</p>
+            <h5 data-i18n="t1-h">Visa & Documents</h5>
+            <p data-i18n="t1-p">Indian passport holders need a Schengen visa. Apply at the French Embassy or VFS Global at least 3 weeks before travel. Keep hotel bookings & return tickets ready.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-translate"></i></div>
-            <h5>Language Tips</h5>
-            <p>French is the primary language. Learn basic phrases: "Bonjour" (Hello), "Merci" (Thank you), "S'il vous plaît" (Please). English is spoken in tourist areas.</p>
+            <h5 data-i18n="t2-h">Language Tips</h5>
+            <p data-i18n="t2-p">French is the primary language. Learn basic phrases: "Bonjour" (Hello), "Merci" (Thank you), "S'il vous plaît" (Please). English is spoken in tourist areas.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-plug"></i></div>
-            <h5>Electricity & SIM</h5>
-            <p>France uses Type C/E plugs (220V). Carry a universal adapter. Get a prepaid SIM at Paris CDG airport or use an international roaming plan.</p>
+            <h5 data-i18n="t3-h">Electricity & SIM</h5>
+            <p data-i18n="t3-p">France uses Type C/E plugs (220V). Carry a universal adapter. Get a prepaid SIM at Paris CDG airport or use an international roaming plan.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-train-front"></i></div>
-            <h5>Getting Around</h5>
-            <p>SNCF trains run from Paris to major Normandy cities. Book on SNCF Connect for best prices. Consider renting a car for countryside flexibility.</p>
+            <h5 data-i18n="t4-h">Getting Around</h5>
+            <p data-i18n="t4-p">SNCF trains run from Paris to major Normandy cities. Book on SNCF Connect for best prices. Consider renting a car for countryside flexibility.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-credit-card"></i></div>
-            <h5>Money & Tipping</h5>
-            <p>The Euro (€) is the currency. Cards accepted widely, but carry cash for small towns. Tipping is not mandatory but 5-10% is appreciated.</p>
+            <h5 data-i18n="t5-h">Money & Tipping</h5>
+            <p data-i18n="t5-p">The Euro (€) is the currency. Cards accepted widely, but carry cash for small towns. Tipping is not mandatory but 5-10% is appreciated.</p>
           </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-icon-box h-100">
             <div class="icon-circle"><i class="bi bi-shield-check"></i></div>
-            <h5>Safety</h5>
-            <p>Normandy is very safe. Standard precautions apply — watch valuables in crowded areas. Emergency number: 112 (EU-wide). Pharmacies are marked with green crosses.</p>
+            <h5 data-i18n="t6-h">Safety</h5>
+            <p data-i18n="t6-p">Normandy is very safe. Standard precautions apply — watch valuables in crowded areas. Emergency number: 112 (EU-wide). Pharmacies are marked with green crosses.</p>
           </div>
         </div>
       </div>
@@ -189,12 +189,12 @@
           <p style="color: var(--brown-soft); margin-bottom: 1.5rem;">Dynamic checklist based on season. Check off items as you pack!</p>
 
           <div class="mb-3">
-            <label class="form-label" style="font-weight: 600; color: var(--navy); font-size: 0.9rem;">Select Season</label>
+            <label class="form-label" style="font-weight: 600; color: var(--navy); font-size: 0.9rem;" data-i18n="pack-label">Select Season</label>
             <select class="form-select" id="seasonSelect" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream);">
-              <option value="summer">Summer (Jun – Aug)</option>
-              <option value="spring">Spring (Mar – May)</option>
-              <option value="autumn">Autumn (Sep – Nov)</option>
-              <option value="winter">Winter (Dec – Feb)</option>
+              <option value="summer" data-i18n="opt-summer">Summer (Jun – Aug)</option>
+              <option value="spring" data-i18n="opt-spring">Spring (Mar – May)</option>
+              <option value="autumn" data-i18n="opt-autumn">Autumn (Sep – Nov)</option>
+              <option value="winter" data-i18n="opt-winter">Winter (Dec – Feb)</option>
             </select>
           </div>
 
@@ -209,43 +209,43 @@
               <tbody>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600; width: 45%;">Bonjour</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Hello / Good morning</td>
+                  <td style="color: black;">Hello / Good morning</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Merci beaucoup</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Thank you very much</td>
+                  <td style="color: black;">Thank you very much</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">S'il vous plaît</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Please</td>
+                  <td style="color: black;">Please</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Excusez-moi</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Excuse me</td>
+                  <td style="color: black;">Excuse me</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Combien ça coûte?</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">How much does it cost?</td>
+                  <td style="color: black;">How much does it cost?</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Où est...?</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Where is...?</td>
+                  <td style="color: black;">Where is...?</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">L'addition, s'il vous plaît</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">The bill, please</td>
+                  <td style="color: black;">The bill, please</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Parlez-vous anglais?</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Do you speak English?</td>
+                  <td style="color: black;">Do you speak English?</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">C'est délicieux!</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">It's delicious!</td>
+                  <td style="color: black;">It's delicious!</td>
                 </tr>
                 <tr>
                   <td style="color: var(--gold); font-weight: 600;">Au revoir</td>
-                  <td style="color: var(--parchment); opacity: 0.8;">Goodbye</td>
+                  <td style="color: black;">Goodbye</td>
                 </tr>
               </tbody>
             </table>
@@ -297,10 +297,10 @@
           <h5 data-i18n="footer-connect">Stay Connected</h5>
           <p data-i18n="footer-connect-sub">Follow us for travel tips and Normandy inspiration.</p>
           <div class="d-flex gap-3 mt-2">
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/normandytourisme" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/normandytourisme" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+            <a href="https://twitter.com/NormandieTour" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com/channel/UCPiyIE62BsBEbZt8334CrMg/videos" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
       </div>
@@ -320,12 +320,54 @@
 
   <script>
     // Currency Converter
-    document.getElementById('convertBtn').addEventListener('click', () => {
-      const inr = parseFloat(document.getElementById('inrAmount').value) || 0;
-      const rate = 89.9;
-      const eur = (inr / rate).toFixed(2);
-      document.getElementById('eurResult').textContent = '€' + Number(eur).toLocaleString();
+    let isInrToEur = true;
+    const rate = 89.9;
+
+    function updateConversion() {
+      const amount = parseFloat(document.getElementById('converterAmount').value) || 0;
+      const resultEl = document.getElementById('converterResult');
+      
+      if (isInrToEur) {
+        const eur = (amount / rate).toFixed(2);
+        resultEl.textContent = '€' + Number(eur).toLocaleString();
+      } else {
+        const inr = Math.round(amount * rate);
+        resultEl.textContent = '₹' + inr.toLocaleString('en-IN');
+      }
+    }
+
+    document.getElementById('swapBtn').addEventListener('click', () => {
+      isInrToEur = !isInrToEur;
+      const amountInput = document.getElementById('converterAmount');
+      const amountLabel = document.getElementById('amountLabel');
+      const resultLabel = document.getElementById('resultLabel');
+      const descLabel = document.getElementById('converterDesc');
+      const swapIcon = document.querySelector('#swapBtn i');
+
+      if (isInrToEur) {
+        descLabel.textContent = "Quick INR to EUR conversion for trip budgeting";
+        descLabel.setAttribute("data-i18n", "currency-sub");
+        amountLabel.textContent = "Amount (₹ INR)";
+        amountLabel.setAttribute("data-i18n", "currency-label");
+        amountInput.value = "50000";
+        resultLabel.textContent = "Equivalent in Euros";
+        resultLabel.setAttribute("data-i18n", "currency-equiv");
+        swapIcon.style.transform = "rotate(0deg)";
+      } else {
+        descLabel.textContent = "Quick EUR to INR conversion for trip budgeting";
+        descLabel.setAttribute("data-i18n", "currency-sub-eur");
+        amountLabel.textContent = "Amount (€ EUR)";
+        amountLabel.setAttribute("data-i18n", "currency-label-eur");
+        amountInput.value = "500";
+        resultLabel.textContent = "Equivalent in INR";
+        resultLabel.setAttribute("data-i18n", "currency-equiv-inr");
+        swapIcon.style.transform = "rotate(180deg)";
+      }
+      updateConversion();
+      if(typeof applyLang === 'function') applyLang(currentLang);
     });
+
+    document.getElementById('convertBtn').addEventListener('click', updateConversion);
 
     // Packing Checklist
     const packingItems = {
@@ -382,7 +424,7 @@
 
     renderChecklist('summer');
   </script>
-  <script src="js/i18n.js"></script>
+  <script src="js/i18n.js?v=1.1"></script>
 </body>
 </html>
 

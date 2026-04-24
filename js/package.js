@@ -181,8 +181,15 @@ function initPackageBuilder() {
   // Check URL params (from planner redirect)
   const params = new URLSearchParams(window.location.search);
   const preselectedDest = params.get('dest');
-  if (preselectedDest) {
+  if (preselectedDest && Array.from(destSelect.options).some(opt => opt.value === preselectedDest)) {
     destSelect.value = preselectedDest;
+    const plannerForm = document.querySelector('.planner-form');
+    if (plannerForm) {
+      const msg = document.createElement('div');
+      msg.className = "alert alert-warning mt-3 mb-4 text-center";
+      msg.innerHTML = `<strong><i class="bi bi-geo-alt"></i> ${preselectedDest} Selected!</strong><br>Please select your Duration and Budget to build your package.`;
+      plannerForm.insertBefore(msg, destSelect);
+    }
   }
 
   let selectedDuration = null;
@@ -255,9 +262,10 @@ function initPackageBuilder() {
       </div>
 
       <div class="text-center">
-        <button class="btn btn-gold" id="savePlanBtn"><i class="bi bi-bookmark me-1"></i> Save This Plan</button>
+        <button class="btn btn-gold" id="savePlanBtn" data-i18n="save-plan"><i class="bi bi-bookmark me-1"></i> Save This Plan</button>
       </div>
     `;
+    if(typeof applyLang === 'function') applyLang(currentLang);
 
     // Save functionality
     document.getElementById('savePlanBtn').addEventListener('click', () => {
@@ -272,8 +280,10 @@ function initPackageBuilder() {
       const plans = JSON.parse(localStorage.getItem('normandyPlans') || '[]');
       plans.push(plan);
       localStorage.setItem('normandyPlans', JSON.stringify(plans));
-      document.getElementById('savePlanBtn').innerHTML = '<i class="bi bi-check-lg me-1"></i> Plan Saved!';
-      document.getElementById('savePlanBtn').disabled = true;
+      const btn = document.getElementById('savePlanBtn');
+      btn.innerHTML = '<i class="bi bi-check-lg me-1"></i> Plan Saved!';
+      btn.setAttribute('data-i18n', 'plan-saved');
+      btn.disabled = true;
       loadSavedPlans();
     });
 
@@ -285,11 +295,12 @@ function initPackageBuilder() {
     if (!savedPlansDiv) return;
     const plans = JSON.parse(localStorage.getItem('normandyPlans') || '[]');
     if (plans.length === 0) {
-      savedPlansDiv.innerHTML = '<p class="text-center" style="color: var(--brown-soft);">No saved plans yet. Build one above!</p>';
+      savedPlansDiv.innerHTML = '<p class="text-center" style="color: var(--brown-soft);" data-i18n="no-plans">No saved plans yet. Build one above!</p>';
+      if(typeof applyLang === 'function') applyLang(currentLang);
       return;
     }
     savedPlansDiv.innerHTML = `
-      <h4 class="mb-3"><i class="bi bi-bookmark-star me-2"></i>Your Saved Plans</h4>
+      <h4 class="mb-3" data-i18n="saved-plans-title"><i class="bi bi-bookmark-star me-2"></i>Your Saved Plans</h4>
       ${plans.map((p, i) => `
         <div class="d-flex justify-content-between align-items-center p-3 mb-2" style="background: var(--parchment); border-radius: 12px; border: 1px solid rgba(26,39,68,0.06);">
           <div>
@@ -305,9 +316,10 @@ function initPackageBuilder() {
         </div>
       `).join('')}
       <div class="text-center mt-3">
-        <button class="btn btn-sm btn-outline-gold" onclick="clearAllPlans()">Clear All Plans</button>
+        <button class="btn btn-sm btn-outline-gold" onclick="clearAllPlans()" data-i18n="clear-all">Clear All Plans</button>
       </div>
     `;
+    if(typeof applyLang === 'function') applyLang(currentLang);
   }
 
   window.deletePlan = function(index) {

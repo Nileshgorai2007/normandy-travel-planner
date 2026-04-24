@@ -127,7 +127,7 @@ function initMap() {
         <div style="display: inline-block; background: ${typeColor}; color: white; font-size: 0.7rem; padding: 2px 8px; border-radius: 20px; margin-bottom: 6px; font-weight: 600;">${loc.type}</div>
         <h6 style="font-family: 'Playfair Display', serif; color: #1a2744; margin: 4px 0; font-size: 1.1rem;">${loc.name}</h6>
         <p style="color: #6b5438; font-size: 0.85rem; line-height: 1.5; margin: 0 0 8px;">${loc.description}</p>
-        <a href="planner.html" style="color: #c9a84c; font-size: 0.8rem; font-weight: 600; text-decoration: none;">Plan a trip →</a>
+        <a href="planner.html?dest=${encodeURIComponent(loc.name)}" style="color: #c9a84c; font-size: 0.8rem; font-weight: 600; text-decoration: none;">Plan a trip →</a>
       </div>
     `, { maxWidth: 280 });
   });

@@ -87,6 +87,23 @@ function initPlanner() {
     destSelect.appendChild(opt);
   });
 
+  // Handle pre-selected destination from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlDest = urlParams.get('dest');
+  if (urlDest && Array.from(destSelect.options).some(opt => opt.value === urlDest)) {
+    destSelect.value = urlDest;
+    const plannerForm = document.querySelector('.planner-form');
+    if (plannerForm) {
+      const msg = document.createElement('div');
+      msg.className = "alert alert-warning mt-3 mb-4 text-center";
+      msg.innerHTML = `<strong><i class="bi bi-geo-alt"></i> ${urlDest} Selected!</strong><br>Please select your Departure City (India) to continue.`;
+      const formRow = plannerForm.querySelector('.row');
+      if (formRow) {
+        plannerForm.insertBefore(msg, formRow);
+      }
+    }
+  }
+
   planBtn.addEventListener('click', () => {
     const origin = originSelect.value;
     const dest = destSelect.value;

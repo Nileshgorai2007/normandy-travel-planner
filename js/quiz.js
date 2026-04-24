@@ -127,17 +127,18 @@ function initQuiz() {
         <div class="quiz-progress-bar" style="width: ${progress}%"></div>
       </div>
       <div class="mb-3 text-end" style="color: var(--brown-soft); font-size: 0.85rem;">
-        Question ${currentQ + 1} of ${quizQuestions.length}
+        <span data-i18n="q-prog1">Question</span> ${currentQ + 1} <span data-i18n="q-prog2">of</span> ${quizQuestions.length}
       </div>
       <div class="quiz-question">
-        <h3>${q.question}</h3>
+        <h3 data-i18n="q${currentQ + 1}-text">${q.question}</h3>
         <div class="quiz-options">
           ${q.options.map((opt, i) => `
-            <button class="quiz-option" data-index="${i}">${opt.text}</button>
+            <button class="quiz-option" data-index="${i}" data-i18n="q${currentQ + 1}-o${i + 1}">${opt.text}</button>
           `).join('')}
         </div>
       </div>
     `;
+    if(typeof applyLang === 'function') applyLang(currentLang);
 
     container.querySelectorAll('.quiz-option').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -168,24 +169,25 @@ function initQuiz() {
       </div>
       <div class="quiz-result" data-aos="fade-up">
         <div style="font-size: 4rem; margin-bottom: 1rem;">${personality.emoji}</div>
-        <h2>You are: ${personality.title}</h2>
-        <p style="color: var(--brown-soft); font-size: 1.1rem; max-width: 500px; margin: 1rem auto;">
+        <h2><span data-i18n="you-are">You are:</span> <span data-i18n="res-${topTag}-title">${personality.title}</span></h2>
+        <p style="color: var(--brown-soft); font-size: 1.1rem; max-width: 500px; margin: 1rem auto;" data-i18n="res-${topTag}-desc">
           ${personality.description}
         </p>
         <div style="background: var(--parchment); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; border: 1px solid rgba(201,168,76,0.2);">
           <h5 style="color: var(--navy); margin-bottom: 0.3rem;">
-            <i class="bi bi-geo-alt me-1"></i>Recommended Destination
+            <i class="bi bi-geo-alt me-1"></i><span data-i18n="rec-dest">Recommended Destination</span>
           </h5>
-          <p style="color: var(--gold-muted); font-size: 1.2rem; font-weight: 600; font-family: var(--font-heading); margin: 0;">
+          <p style="color: var(--gold-muted); font-size: 1.2rem; font-weight: 600; font-family: var(--font-heading); margin: 0;" data-i18n="res-${topTag}-dest">
             ${personality.destination}
           </p>
         </div>
         <div class="d-flex gap-3 justify-content-center flex-wrap mt-4">
-          <a href="planner.html" class="btn btn-gold"><i class="bi bi-map me-1"></i> Plan Your Trip</a>
-          <button class="btn btn-outline-gold" onclick="location.reload()"><i class="bi bi-arrow-repeat me-1"></i> Retake Quiz</button>
+          <a href="planner.html" class="btn btn-gold" data-i18n="plan-trip"><i class="bi bi-map me-1"></i> Plan Your Trip</a>
+          <button class="btn btn-outline-gold" onclick="location.reload()" data-i18n="retake-quiz"><i class="bi bi-arrow-repeat me-1"></i> Retake Quiz</button>
         </div>
       </div>
     `;
+    if(typeof applyLang === 'function') applyLang(currentLang);
   }
 }
 

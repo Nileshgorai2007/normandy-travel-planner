@@ -59,35 +59,35 @@
 
           <!-- Step 1: Destination -->
           <div class="planner-form mb-4" data-aos="fade-up">
-            <h4 class="mb-3"><i class="bi bi-geo-alt me-2 text-gold"></i>Step 1: Choose Destination</h4>
+            <h4 class="mb-3" data-i18n="step1-title"><i class="bi bi-geo-alt me-2 text-gold"></i>Step 1: Choose Destination</h4>
             <select class="form-select" id="pkgDest" style="border: 2px solid var(--parchment-dark); border-radius: 8px; padding: 0.7rem 1rem; background: var(--cream); max-width: 400px;">
-              <option value="">Select a destination...</option>
+              <option value="" data-i18n="select-dest">Select a destination...</option>
             </select>
           </div>
 
           <!-- Step 2: Duration -->
           <div class="planner-form mb-4" data-aos="fade-up" data-aos-delay="100">
-            <h4 class="mb-3"><i class="bi bi-calendar3 me-2 text-gold"></i>Step 2: Choose Duration</h4>
+            <h4 class="mb-3" data-i18n="step2-title"><i class="bi bi-calendar3 me-2 text-gold"></i>Step 2: Choose Duration</h4>
             <div class="row g-3">
               <div class="col-md-4">
                 <div class="package-option duration-option" data-days="3">
                   <i class="bi bi-lightning"></i>
-                  <h5>3 Days</h5>
-                  <p>Quick getaway — hit the highlights</p>
+                  <h5 data-i18n="d3-h">3 Days</h5>
+                  <p data-i18n="d3-p">Quick getaway — hit the highlights</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="package-option duration-option" data-days="5">
                   <i class="bi bi-sun"></i>
-                  <h5>5 Days</h5>
-                  <p>Balanced trip — explore in depth</p>
+                  <h5 data-i18n="d5-h">5 Days</h5>
+                  <p data-i18n="d5-p">Balanced trip — explore in depth</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="package-option duration-option" data-days="7">
                   <i class="bi bi-stars"></i>
-                  <h5>7 Days</h5>
-                  <p>Full immersion — live like a local</p>
+                  <h5 data-i18n="d7-h">7 Days</h5>
+                  <p data-i18n="d7-p">Full immersion — live like a local</p>
                 </div>
               </div>
             </div>
@@ -95,27 +95,27 @@
 
           <!-- Step 3: Budget -->
           <div class="planner-form mb-4" data-aos="fade-up" data-aos-delay="200">
-            <h4 class="mb-3"><i class="bi bi-wallet2 me-2 text-gold"></i>Step 3: Choose Budget</h4>
+            <h4 class="mb-3" data-i18n="step3-title"><i class="bi bi-wallet2 me-2 text-gold"></i>Step 3: Choose Budget</h4>
             <div class="row g-3">
               <div class="col-md-4">
                 <div class="package-option budget-option" data-budget="low">
                   <i class="bi bi-piggy-bank"></i>
-                  <h5>Budget</h5>
-                  <p>Hostels, local food, public transport</p>
+                  <h5 data-i18n="b-low-h">Budget</h5>
+                  <p data-i18n="b-low-p">Hostels, local food, public transport</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="package-option budget-option" data-budget="medium">
                   <i class="bi bi-credit-card"></i>
-                  <h5>Mid-Range</h5>
-                  <p>3-star hotels, restaurants, guided tours</p>
+                  <h5 data-i18n="b-mid-h">Mid-Range</h5>
+                  <p data-i18n="b-mid-p">3-star hotels, restaurants, guided tours</p>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="package-option budget-option" data-budget="high">
                   <i class="bi bi-gem"></i>
-                  <h5>Luxury</h5>
-                  <p>Boutique hotels, fine dining, private tours</p>
+                  <h5 data-i18n="b-high-h">Luxury</h5>
+                  <p data-i18n="b-high-p">Boutique hotels, fine dining, private tours</p>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@
 
           <!-- Build Button -->
           <div class="text-center mb-4" data-aos="fade-up" data-aos-delay="300">
-            <button class="btn btn-gold btn-lg" id="buildPackageBtn">
+            <button class="btn btn-gold btn-lg" id="buildPackageBtn" data-i18n="build-btn">
               <i class="bi bi-hammer me-2"></i>Build My Package
             </button>
           </div>
@@ -213,10 +213,10 @@
           <h5 data-i18n="footer-connect">Stay Connected</h5>
           <p data-i18n="footer-connect-sub">Follow us for travel tips and Normandy inspiration.</p>
           <div class="d-flex gap-3 mt-2">
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-facebook"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-instagram"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" style="font-size:1.3rem;"><i class="bi bi-youtube"></i></a>
+            <a href="https://www.facebook.com/normandytourisme" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+            <a href="https://www.instagram.com/normandytourisme" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+            <a href="https://twitter.com/NormandieTour" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com/channel/UCPiyIE62BsBEbZt8334CrMg/videos" style="font-size:1.3rem;" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
       </div>
@@ -232,9 +232,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="js/app.js"></script>
-  <script src="js/package.js"></script>
+  <script src="js/package.js?v=1.1"></script>
   <script src="js/chatbot.js"></script>
-  <script src="js/i18n.js"></script>
+  <script src="js/i18n.js?v=1.1"></script>
 </body>
 </html>
 
